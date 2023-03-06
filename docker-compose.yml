@@ -15,5 +15,13 @@ services:
     ports:
       - "27017:27017"
 
+  rabbitmq:
+    image: rabbitmq:3.11-alpine
+    ports:
+      - "5672:5672"
+    volumes:
+      - mq-data:/var/lib/rabbitmq/
+
 volumes:
   mongo-data:
+  mq-data:

@@ -2,8 +2,7 @@
   "name": "radwell-scraper",
   "version": "0.0.1",
   "dependencies": {
-    "@grpc/grpc-js": "^1.8.11",
-    "@grpc/proto-loader": "^0.7.5",
+    "amqplib": "^0.10.3",
     "puppeteer": "^19.7.2"
   }
 }

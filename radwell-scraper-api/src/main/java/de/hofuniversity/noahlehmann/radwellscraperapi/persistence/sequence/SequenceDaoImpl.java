@@ -21,7 +21,7 @@ public class SequenceDaoImpl implements SequenceDao {
 
         Query query = new Query(Criteria.where("_id").is(key));
 
-        if (mongoOperation.find(query, SequenceId.class).size() == 0){
+        if (mongoOperation.find(query, SequenceId.class).size() == 0) {
             mongoOperation.insert(new SequenceId(key));
         }
 

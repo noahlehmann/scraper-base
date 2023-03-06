@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+option java_multiple_files = true;
+package de.hofuniversity.noahlehmann.radwellscraperapi.external.scraper;
+
 message ScraperCall {
   int64 logId = 1;
   string target = 2;

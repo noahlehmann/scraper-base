@@ -1,10 +1,10 @@
 package de.hofuniversity.noahlehmann.radwellscraperapi.controller;
 
-import de.hofuniversity.noahlehmann.radwellscraperapi.persistence.sequence.SequenceDao;
 import de.hofuniversity.noahlehmann.radwellscraperapi.persistence.productcategory.ProductCategory;
 import de.hofuniversity.noahlehmann.radwellscraperapi.persistence.productcategory.ProductCategoryRepository;
 import de.hofuniversity.noahlehmann.radwellscraperapi.persistence.producttimestamp.ProductTimestamp;
 import de.hofuniversity.noahlehmann.radwellscraperapi.persistence.producttimestamp.ProductTimestampRepository;
+import de.hofuniversity.noahlehmann.radwellscraperapi.persistence.sequence.SequenceDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,13 +54,13 @@ public class CategoryController {
     }
 
     @GetMapping("/category/{id}/timestamp")
-    public ResponseEntity<Set<ProductTimestamp>> getTimestampsForCategory(@PathVariable Long id){
+    public ResponseEntity<Set<ProductTimestamp>> getTimestampsForCategory(@PathVariable Long id) {
         Optional<ProductCategory> optional = categoryRepository.findById(id);
         return optional.map(category -> ResponseEntity.ok(category.getProductTimestamps())).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping("/product/{productId}")
-    public ResponseEntity<Set<ProductTimestamp>> getTimestampsForProductId(@PathVariable String productId){
+    public ResponseEntity<Set<ProductTimestamp>> getTimestampsForProductId(@PathVariable String productId) {
         return ResponseEntity.ok(productTimestampRepository.findAllByProductId(productId));
     }
 }

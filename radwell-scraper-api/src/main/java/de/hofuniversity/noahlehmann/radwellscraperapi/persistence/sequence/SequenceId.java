@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "sequence")
 public class SequenceId {
 
-    public SequenceId(String key){
+    public SequenceId(String key) {
         this.id = key;
         this.seq = 0L;
     }
