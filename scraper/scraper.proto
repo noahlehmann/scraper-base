@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+message ScraperCall {
+  int64 logId = 1;
+  string target = 2;
+  bool disguise = 3;
+}
+
+message RequestConfirmation {
+  int64 logId = 1;
+  bool confirmed = 2;
+  string message = 3;
+}
+
+service ScraperService {
+  rpc ScrapeTarget (ScraperCall) returns (RequestConfirmation) {}
+}
+
+
